@@ -4,5 +4,5 @@ import App from "./App";
 
 test('should the app render', () => {
   render(<App/>)
-  expect(screen.getByText(/count/i)).toBeInTheDocument();
+  expect(screen.getByText(/count/i)).toBeInTheDocument()
 })
