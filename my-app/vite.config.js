@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base:"/github.io/",
+  base:"/Deploy/",
   test: {
     environment: 'jsdom', // ✅ important
     globals: true,         // ✅ optional, for global 'test', 'expect' etc.
