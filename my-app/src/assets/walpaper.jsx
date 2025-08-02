@@ -14,16 +14,21 @@ export default function Wallpaper() {
   }, []);
 
   const handleset = (e) => {
-    e.preventDefault();
-    if (!file) return;
+  e.preventDefault();
+  if (!file) return;
 
-    const urlFile = URL.createObjectURL(file);
-    document.body.style.backgroundImage = `url(${urlFile})`;
+  const reader = new FileReader();
+  reader.onloadend = () => {
+    const base64 = reader.result;
+    document.body.style.backgroundImage = `url(${base64})`;
     document.body.style.backgroundSize = "cover";
     document.body.style.transition = "all ease .3s";
     document.body.style.backgroundPosition = "center center";
-    localStorage.setItem("wallpaper", urlFile);
+    localStorage.setItem("wallpaper", base64);
   };
+  reader.readAsDataURL(file);
+};
+
   return (
     <>
       <input type="file" onChange={(o) => setfile(o.target.files[0])} />
